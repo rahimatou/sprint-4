@@ -1,4 +1,2 @@
 # sprint-4
-iohdsjfdsjpdspojfdsjo
-sdjposdfpojfdsop
-fdsjpdfspojfds
+Looking at the Data Frame, it contains mostly used car with few new but not latest car. The best model people mostly buy from my analysis, most frequent choice of model is 'bmw x5'. The year range for use cars vary from 1908, 2019. Filter choice model from the model column and the from here got the model year for each model choice. Looking at price analysis how distibution of price varies depending on transmission, fuel or type and condition and it is demonstrated using Histogram. Also looked at the age categories of the cars to come out with newest cars although some model had missing model year which lead to the infomation not being acurate and show a model year greater than 20years. Also looked at distribution of price depending on odometer,cylinders and we saw the dispursion with somt outliers.
