@@ -51,3 +51,4 @@ fig2 = pe.scatter(df, x="price", y=choice_for_scatter,hover_data=['model_year'])
 fig2.update_layout(
 title="<b> Price vs {}</b>".format(choice_for_scatter))
 st.plotly_chart(fig2)
+ 
