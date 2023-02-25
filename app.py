@@ -22,7 +22,7 @@ transmission, fuel or type and condition
 # Will create histograms with the split by parameter of choice: paint_color, transmission, type, conditon
 
 #creating list of options to choose from
-list_for_hist=['transmission','fuel','type','condition']
+list_for_hist=['transmission','fuel','type','condition','model']
 
 #creating selectbox
 choice_for_hist = st.selectbox('Split for price distribution', list_for_hist)
