@@ -10,17 +10,16 @@ st.write("""
 ##### Filter the data below to see the ads by model
 """)
 show_new_cars = st.checkbox('Include new cars from dealers')
-#creating options for filter  from all manufacturers and different years
+#creating options for filter  from all model and different years
 model_choice = df['model'].unique()
 make_choice_man = st.selectbox('Select model:', model_choice)
 
-#next let's create a slider for years, so that users can filter cars by model yearsb
+#next let's create a slider for years, so that users can filter cars by model years
 #creating min and max years as limits for sliders
 min_year, max_year=int(df['model_year'].min()), int(df['model_year'].max())
 
 #creating slider 
-year_range = st.slider(
-     "Choose years",
+year_range = st.slider( "Choose years",
      value=(min_year,max_year),min_value=min_year,max_value=max_year )
 #creating actual range  based on slider that will be used to filter in the dataset
 
@@ -50,7 +49,7 @@ list_for_hist=['transmission','fuel','type','condition','model']
 choice_for_hist = st.selectbox('Split for price distribution', list_for_hist)
 
 #plotly histogram, where price is split by the choice made in the selectbox
-fig1 = pe.histogram(df, x="price", color=choice_for_hist)
+fig1 = px.histogram(df, x="price", color=choice_for_hist)
 
 #adding tittle
 fig1.update_layout(
@@ -60,9 +59,9 @@ title="<b> Split of price by {}</b>".format(choice_for_hist))
 st.plotly_chart(fig1)
 
 
-st.header('manufacturer production and model production analysis')
+st.header('model production and model production analysis')
 st.write(""""
-###### let's analyse what influence manufacturer production and model year. we will check how distribution of model
+###### let's analyse what influence model production and model year. we will check how distribution of model
 production varies depending on model,condition,cylinder,model_year,state
 """)
 
