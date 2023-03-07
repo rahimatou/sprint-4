@@ -21,7 +21,6 @@ min_year, max_year=int(df['model_year'].min()), int(df['model_year'].max())
 #creating slider 
 year_range = st.slider( "Choose years",
      value=(min_year,max_year),min_value=min_year,max_value=max_year )
-#creating actual range  based on slider that will be used to filter in the dataset
 
 #creating actual range  based on slider that will be used to filter in the dataset
 actual_range=list(range(year_range[0],year_range[1]+1))
@@ -38,6 +37,15 @@ st.write("""
 transmission, fuel or type, model and condition
 """)
 
+st.header('Compare days listed between manufacturers')
+list_for_hist = df['model_name'].unique()
+selection1 = st.selectbox('model_name 1', list_for_hist )
+selection2 = st.selectbox('model_name 2', list_for_hist )
+df_filtered = df[(df['model_name'] == selection1) | (df['model_name'] == selection2)]
+fig = px.histogram(df_filtered , x='days_listed', color = 'model_name')
+
+# display the figure with streamlit
+st.write(fig)
 
 
 # Will create histograms with the split by parameter of choice: paint_color, transmission, type, conditon
