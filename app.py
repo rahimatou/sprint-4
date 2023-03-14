@@ -22,10 +22,11 @@ min_year, max_year=int(df['model_year'].min()), int(df['model_year'].max())
 year_range = st.slider( "Choose years",
      value=(min_year,max_year),min_value=min_year,max_value=max_year )
 
-#creating actual range  based on slider that will be used to filter in the dataset
-actual_range=list(range(year_range[0],year_range[1]+1))
+#creating actual range based on slider that will be used to filter in the dataset
+actual_range=(range(year_range[0],year_range[1]+1))
+
 #filtering dataset on chosen model and chosen year range
-filtered_type=df[(df.model==make_choice_man) & (df.model_year.isin(list(actual_range)))]
+filtered_type=df[(df.model==make_choice_man) & (df.model_year.isin(actual_range))]
 
 #showing the final table in streamlit
 st.table(filtered_type)
@@ -38,11 +39,11 @@ transmission, fuel or type, model and condition
 """)
 
 st.header('Compare days listed between manufacturers')
-list_for_hist = df['model_name'].unique()
-selection1 = st.selectbox('model_name 1', list_for_hist )
-selection2 = st.selectbox('model_name 2', list_for_hist )
-df_filtered = df[(df['model_name'] == selection1) | (df['model_name'] == selection2)]
-fig = px.histogram(df_filtered , x='days_listed', color = 'model_name')
+list_for_hist = df['model'].unique()
+selection1 = st.selectbox('model- 1', list_for_hist )
+selection2 = st.selectbox('model_ 2', list_for_hist )
+df_filtered = df[(df['model'] == selection1) | (df['model'] == selection2)]
+fig = px.histogram(df_filtered , x='days_listed', color = 'model')
 
 # display the figure with streamlit
 st.write(fig)
